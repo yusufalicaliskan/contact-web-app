@@ -48,12 +48,6 @@
     letter-spacing: 1px;
 }
 
-@media (min-width: 1024px) {
-    .list {
-        width: calc(var(--size) * 40);
-    }
-}
-
 .status {
     width: var(--size);
     height: var(--size);
