@@ -20,6 +20,8 @@
     --green: #11998e;
     --red: #ec2F4B;
     --border: var(--primary);
+    --duration: 0.5s;
+    --transition: all ease-in-out var(--duration);
     --font: 'Open Sans', sans-serif;
     --base-font-size: 10px;
     --size: 1rem;
