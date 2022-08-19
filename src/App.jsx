@@ -1,9 +1,12 @@
-import Contacts from "./components/Contacts";
 import "./app.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home"
 
 function App() {
   return (
-      <Contacts />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
   );
 }
 
