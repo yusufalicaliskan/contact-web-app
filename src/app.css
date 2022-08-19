@@ -1,0 +1,46 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary: #00bf8f;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #001510;
+    }
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: var(--primary);
+    font-size: 1rem;
+    margin: 0;
+}
+
+ul, ol, dl, menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: 1px solid;
+    cursor: pointer;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
