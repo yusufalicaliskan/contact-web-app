@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.createButton {
+    padding: calc(var(--size) - 0.5rem) calc(var(--size) * 2);
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--text);
+    margin-left: auto;
+    font-size: calc(var(--size) * 1.3);
+    font-weight: 500;
+    border-radius: var(--radius);
+}
