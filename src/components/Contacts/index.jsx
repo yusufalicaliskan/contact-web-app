@@ -20,7 +20,7 @@ const Contacts = () => {
                 <li key={index} className={Style.item}>
                     <div className={Style.button}>
                         <div className={Style.image}>
-                            <img src={`https://joeschmoe.io/api/v1/${contact.name}`} className={Style.avatar} />
+                            <img src={`https://joeschmoe.io/api/v1/${contact.name}`} className={Style.avatar} alt={contact.name} />
                             <span className={`${Style.status} ${!contact.status ? Style.statusOn : Style.statusOff}`}></span>
                         </div>
                         <div className={Style.content}>
