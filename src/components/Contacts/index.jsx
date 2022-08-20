@@ -1,6 +1,7 @@
 import Style from "./style.module.css"
 import { useSelector, useDispatch } from 'react-redux'
-import { deleteContact } from "../../state/contacts";
+import { Link } from "react-router-dom";
+import { deleteContactByPhone } from "../../state/contacts";
 import { AiOutlineDelete } from "react-icons/ai"
 
 const Contacts = () => {
@@ -9,7 +10,7 @@ const Contacts = () => {
     const search = useSelector(state => state.search.value.search)
 
     const deleteItem = (contact) => {
-        dispatch(deleteContact({
+        dispatch(deleteContactByPhone({
             value: contact
         }))
     }
@@ -18,7 +19,7 @@ const Contacts = () => {
         <ul className={Style.list}>
             {(search.length > 0 ? search : contacts).map((contact, index) => (
                 <li key={index} className={Style.item}>
-                    <div className={Style.button}>
+                    <Link to={`/profile?name=${contact.name}&surname=${contact.surname}`} className={Style.button}>
                         <div className={Style.image}>
                             <img src={`https://joeschmoe.io/api/v1/${contact.name}`} className={Style.avatar} alt={contact.name} />
                             <span className={`${Style.status} ${!contact.status ? Style.statusOn : Style.statusOff}`}></span>
@@ -32,7 +33,7 @@ const Contacts = () => {
                                 <AiOutlineDelete size={25} />
                             </button>
                         </div>
-                    </div>
+                    </Link>
                 </li>
             ))}
         </ul>
