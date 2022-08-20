@@ -1,12 +1,13 @@
 import Style from "./style.module.css"
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const Contacts = () => {
     const contacts = useSelector(state => state.contacts.value)
+    const search = useSelector(state => state.search.value.search)
 
     return (
         <ul className={Style.list}>
-            {contacts.map((contact, index) => (
+            {(search.length > 0 ? search : contacts).map((contact, index) => (
                 <li key={index} className={Style.item}>
                     <button className={Style.button}>
                         <div className={Style.image}>

@@ -1,14 +1,20 @@
 import React from "react";
 import Style from "./style.module.css"
-import {toast} from "react-toastify";
+import {search} from "../../state/search";
+import {useDispatch, useSelector} from "react-redux";
 
 const Search = () => {
     const [keyword, setKeyword] = React.useState("");
+    const dispatch = useDispatch()
+    const contacts = useSelector(state => state.contacts.value);
 
     const searchHandler = () => {
-        if(keyword.length === 0) {
-            toast.error("Please enter the name");
-        }
+        dispatch(search({
+            value: {
+                contacts,
+                keyword
+            }
+        }))
     }
 
     return (
