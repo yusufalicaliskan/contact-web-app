@@ -1,0 +1,30 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary: #D5D5D5;
+        --secondary: #F2F2F2;
+        --background: #FFFFFF;
+        --text: #000000;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #0F2027;
+        --secondary: #2C5364;
+        --background: #000000;
+        --text: #FFFFFF;
+    }
+}
+
+:root {
+    --green: #11998e;
+    --red: #ec2F4B;
+    --border: var(--primary);
+    --duration: 0.5s;
+    --transition: all ease-in-out var(--duration);
+    --font: 'Open Sans', sans-serif;
+    --base-font-size: 10px;
+    --size: 1rem;
+    --gap: 0.5rem;
+    --radius: 0.5rem;
+}

@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react"
-import "./app.css";
+import "./styles/app.css";
 import {useDispatch} from "react-redux";
 import {getContacts} from "./state/contacts";
 import { Routes, Route } from "react-router-dom";

@@ -1,0 +1,69 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    outline: none;
+    font-family: var(--font);
+}
+
+html {
+    font-size: var(--base-font-size);
+}
+
+body {
+    background: var(--background);
+    font-size: var(--size);
+    margin: 0;
+}
+
+@keyframes loader-bg {
+    0% {
+      background: #111111;
+    }
+
+    99% {
+        background: #111111;
+    }
+
+    100% {
+      background: var(--background);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    body {
+        animation: loader-bg 5s;
+    }
+  }
+
+ul, ol, dl, menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: 1px solid;
+    cursor: pointer;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+input:not([type="checkbox"], [type="radio"]) {
+    border: 1px solid var(--border);
+    width: 100%;
+    height: calc(var(--size) * 4);
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    background: transparent;
+}
