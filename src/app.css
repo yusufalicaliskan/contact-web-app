@@ -2,8 +2,9 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --primary: #fefefe;
+        --primary: #D5D5D5;
         --secondary: #F2F2F2;
+        --background: #FFFFFF;
         --text: #000000;
     }
 }
@@ -12,6 +13,7 @@
     :root {
         --primary: #0F2027;
         --secondary: #2C5364;
+        --background: #000000;
         --text: #FFFFFF;
     }
 }
@@ -40,7 +42,7 @@ html {
 }
 
 body {
-    background: var(--primary);
+    background: var(--background);
     font-size: var(--size);
     margin: 0;
 }
@@ -70,8 +72,8 @@ img {
     display: block;
 }
 
-input {
-    border: 1px solid var(--card-border);
+input:not([type="checkbox"], [type="radio"]) {
+    border: 1px solid var(--border);
     width: 100%;
     height: calc(var(--size) * 4);
     border-top-left-radius: var(--radius);
