@@ -17,8 +17,9 @@ export const Contacts = createSlice({
     initialState,
     reducers: {
         addContact: (state, action) => {
-            const filterByPhone = state.value.filter(item => item.tel === action.payload.value.tel)
-            const filterByName = state.value.filter(item => item.name.toLocaleLowerCase().match(action.payload.value.name.trim().toLocaleLowerCase()) && item.surname.toLocaleLowerCase().match(action.payload.value.surname.toLocaleLowerCase()))
+            const { name, surname, tel } = action.payload.value;
+            const filterByPhone = state.value.filter(item => item.tel === tel)
+            const filterByName = state.value.filter(item => item.name.toLocaleLowerCase().match(name.trim().toLocaleLowerCase()) && item.surname.toLocaleLowerCase().match(surname.toLocaleLowerCase()))
 
             if(filterByPhone.length > 0) {
                 toast.error("This number has already been added" )
@@ -29,8 +30,12 @@ export const Contacts = createSlice({
                 toast.success("New contact added!" )
             }
         },
+        deleteContact: (state, action) => {
+            state.value = [...state.value.filter(item => item.tel !== action.payload.value.tel)]
+            toast.success("Deleted contact!")
+        }
     },
 })
 
-export const { addContact } = Contacts.actions
+export const { addContact, deleteContact } = Contacts.actions
 export default Contacts.reducer

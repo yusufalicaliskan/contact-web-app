@@ -66,3 +66,7 @@
 .statusOff {
     background: var(--red);
 }
+
+.delete {
+    border: none;
+}
