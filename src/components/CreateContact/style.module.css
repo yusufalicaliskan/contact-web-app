@@ -1,5 +1,5 @@
 .modal {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -9,7 +9,7 @@
 }
 
 .overlay {
-    background: rgba(var(--primary), 0.5);
+    background: var(--background);
     position: absolute;
     top: 0;
     left: 0;
