@@ -38,7 +38,7 @@ export const Contacts = createSlice({
             } else {
                 state.value.push(action.payload.value)
                 sessionStorage.setItem("contacts", JSON.stringify(state.value))
-                toast.success("New contact added!" )
+                toast.success("New contact added!")
             }
         },
         deleteContact: (state, action) => {
