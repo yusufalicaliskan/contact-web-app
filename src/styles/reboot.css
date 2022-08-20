@@ -28,7 +28,7 @@ body {
     }
   }
 
-  @media (prefers-color-scheme: light) {
+  html.dark {
     body {
         animation: loader-bg 5s;
     }
@@ -66,4 +66,44 @@ input:not([type="checkbox"], [type="radio"]) {
     border-top-left-radius: var(--radius);
     border-top-right-radius: var(--radius);
     background: transparent;
+}
+
+a {
+    color: var(--text);
+}
+
+.wrapper {
+    height: 100vh;
+}
+
+@media (min-width: 540px) {
+    .wrapper {
+        background-size: 520px;
+        padding: 80px 50px 40px;
+        width: 470px;
+        margin: 0 auto;
+        background-image: url("../images/iphone.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .content {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        border-radius: calc(var(--radius) * 5);
+    }
+}
+
+@media (max-width: 539px) {
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content {
+        width: 100%;
+        padding: 0 calc(var(--size) * 2);
+    }
 }
