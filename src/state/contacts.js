@@ -16,6 +16,16 @@ export const Contacts = createSlice({
     name: 'contacts',
     initialState,
     reducers: {
+        getContacts: (state) => {
+            const contacts = sessionStorage.getItem("contacts")
+
+            if(contacts) {
+               state.value = JSON.parse(contacts)
+            } else {
+                state.value = initialState.value
+                sessionStorage.setItem("contacts", JSON.stringify(state.value))
+            }
+        },
         addContact: (state, action) => {
             const { name, surname, tel } = action.payload.value;
             const filterByPhone = state.value.filter(item => item.tel === tel)
@@ -27,15 +37,17 @@ export const Contacts = createSlice({
                 toast.error("This contact has already been added" )
             } else {
                 state.value.push(action.payload.value)
+                sessionStorage.setItem("contacts", JSON.stringify(state.value))
                 toast.success("New contact added!" )
             }
         },
         deleteContact: (state, action) => {
             state.value = [...state.value.filter(item => item.tel !== action.payload.value.tel)]
+            sessionStorage.setItem("contacts", JSON.stringify(state.value))
             toast.success("Deleted contact!")
         }
     },
 })
 
-export const { addContact, deleteContact } = Contacts.actions
+export const { addContact, deleteContact, getContacts } = Contacts.actions
 export default Contacts.reducer
