@@ -1,24 +1,27 @@
 import React from "react"
 import Style from "./style.module.css"
+import { useDispatch } from "react-redux"
+import { addContact } from "../../state/contacts"
 
 const CreateContact = ({
     onClose = () => undefined,
     isOpen = false,
 }) => {
-    const [data, setData] = React.useState({
+    const dispatch = useDispatch()
+    const initialValue = {
         name: "",
         surname: "",
-        email: "",
         tel: "",
-        job: "",
-        age: 0,
-        location: "",
-        website: "",
-        status: false,
-    })
+        blocked: false,
+    }
+    const [data, setData] = React.useState(initialValue)
 
     const onSubmit = (event) => {
         event.preventDefault()
+        dispatch(addContact({
+            value: data
+        }))
+        setData(initialValue)
     }
 
     return (
@@ -28,20 +31,24 @@ const CreateContact = ({
                 <form onSubmit={onSubmit} className={Style.form}>
                     <div className={Style.formElement}>
                         <label htmlFor="name">Name *</label>
-                        <input type="text" className={Style.textBox} value={data.name} onChange={event => setData({ ...data, name: event.currentTarget.value })} />
+                        <input type="text" className={Style.textBox} value={data.name} onChange={event => setData({ ...data, name: event.currentTarget.value })} required />
                     </div>
                     <div className={Style.formElement}>
                         <label htmlFor="surname">Surname *</label>
-                        <input type="text" className={Style.textBox} value={data.surname} onChange={event => setData({ ...data, surname: event.currentTarget.value })} />
+                        <input type="text" className={Style.textBox} value={data.surname} onChange={event => setData({ ...data, surname: event.currentTarget.value })} required />
                     </div>
                     <div className={Style.formElement}>
                         <label htmlFor="tel">Phone *</label>
-                        <input type="tel" className={Style.textBox} value={data.tel} onChange={event => setData({ ...data, tel: event.currentTarget.value })} />
+                        <input type="tel" className={Style.textBox} value={data.tel} onChange={event => setData({ ...data, tel: event.currentTarget.value })} required />
                     </div>
-                    <div className={Style.formElement}>
+                    <div className={Style.formSwitchElement}>
                         <label htmlFor="status">Is Blocked?</label>
-                        <input type="checkbox" checked={data.status} onChange={event => setData({ ...data, status: event.currentTarget.checked })} />
+                        <div className={Style.switch}>
+                            <input type="checkbox" checked={data.status} onChange={event => setData({ ...data, status: event.currentTarget.checked })} />
+                            <span className={Style.slider} />
+                        </div>
                     </div>
+                    <button type="submit" className={Style.submit}>Create Contact</button>
                 </form>
             </div>
         </div>
