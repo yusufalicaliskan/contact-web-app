@@ -22,7 +22,7 @@ export const Contacts = createSlice({
             if(contacts) {
                state.value = JSON.parse(contacts)
             } else {
-                state.value = initialState.value
+                state.value = [...initialState.value]
                 sessionStorage.setItem("contacts", JSON.stringify(state.value))
             }
         },
@@ -41,13 +41,18 @@ export const Contacts = createSlice({
                 toast.success("New contact added!")
             }
         },
-        deleteContact: (state, action) => {
+        deleteContactByPhone: (state, action) => {
             state.value = [...state.value.filter(item => item.tel !== action.payload.value.tel)]
+            sessionStorage.setItem("contacts", JSON.stringify(state.value))
+            toast.success("Deleted contact!")
+        },
+        updateContact: (state, action) => {
+            state.value = [...action.payload.value]
             sessionStorage.setItem("contacts", JSON.stringify(state.value))
             toast.success("Deleted contact!")
         }
     },
 })
 
-export const { addContact, deleteContact, getContacts } = Contacts.actions
+export const { addContact, deleteContactByPhone, updateContact, getContacts } = Contacts.actions
 export default Contacts.reducer
