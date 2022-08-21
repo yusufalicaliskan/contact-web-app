@@ -28,7 +28,7 @@ body {
     }
   }
 
-  html.dark {
+@media (prefers-color-scheme: light)  {
     body {
         animation: loader-bg 5s;
     }
