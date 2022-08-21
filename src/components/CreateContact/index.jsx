@@ -22,6 +22,7 @@ const CreateContact = ({
             value: data
         }))
         setData(initialValue)
+        onClose()
     }
 
     return (

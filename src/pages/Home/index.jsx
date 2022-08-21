@@ -3,10 +3,12 @@ import Style from "./style.module.css"
 import Contacts from "../../components/Contacts";
 import Search from "../../components/Search";
 import CreateContact from "../../components/CreateContact";
+import {useSelector} from "react-redux";
 import { AiOutlinePlus } from "react-icons/ai";
 
 const Home = () => {
     const [modal, setModal] = React.useState(false);
+    const contacts = useSelector(state => state.contacts.value);
 
     return (
         <>
@@ -14,7 +16,7 @@ const Home = () => {
                 <AiOutlinePlus />
             </button>
             <Search />
-            <Contacts />
+            {contacts.length > 0 && <Contacts />}
             <CreateContact isOpen={modal} onClose={() => setModal(false)} />
         </>
     )
