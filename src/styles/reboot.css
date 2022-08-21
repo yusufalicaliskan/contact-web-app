@@ -79,7 +79,7 @@ a {
 @media (min-width: 540px) {
     .wrapper {
         background-size: 520px;
-        padding: 80px 50px 40px;
+        padding: 80px 50px;
         width: 470px;
         margin: 0 auto;
         background-image: url("../images/iphone.png");

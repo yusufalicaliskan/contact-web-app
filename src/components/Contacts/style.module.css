@@ -1,13 +1,12 @@
 .item {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     border-radius: var(--radius);
     background: var(--secondary);
 }
 
 .item:not(:last-child) {
-    margin-bottom: calc(var(--size) * 1.2) var(--secondary);
+    margin-bottom: calc(var(--size) * 1.2);
 }
 
 .item > *:first-child {
@@ -71,4 +70,6 @@
 .delete {
     border: none;
     background: transparent;
+    padding: 0 calc(var(--size) * 2);
+    height: 100%;
 }
