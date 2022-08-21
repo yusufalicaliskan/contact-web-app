@@ -1,25 +1,26 @@
-.list {
-
+.item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: var(--radius);
+    background: var(--secondary);
 }
 
 .item:not(:last-child) {
-    margin-bottom: calc(var(--size) * 1.2);
+    margin-bottom: calc(var(--size) * 1.2) var(--secondary);
+}
+
+.item > *:first-child {
+    flex: 1;
 }
 
 .button {
-    border-radius: var(--radius);
-    background: var(--secondary);
-    border-width: 0;
-    border-color: var(--secondary);
+    border: none;
     padding: calc(var(--gap) * 2) calc(var(--gap) * 4);
     width: 100%;
     display: flex;
     align-items: center;
     text-align: left;
-}
-
-.list > li:not(:last-child) .button {
-    border-width: 0 0 1px 0;
 }
 
 .image {
